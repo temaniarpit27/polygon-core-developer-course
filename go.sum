@@ -1,1 +1,3 @@
+golang.org/x/tour v0.1.0 h1:OWzbINRoGf1wwBhKdFDpYwM88NM0d1SL/Nj6PagS6YE=
+golang.org/x/tour v0.1.0/go.mod h1:DUZC6G8mR1AXgXy73r8qt/G5RsefKIlSj6jBMc8b9Wc=
 k8s.io/client-go v1.5.2 h1:JOxmv4FxrCIOS54kAABbN8/hA9jqGpns+Zc6soNgd8U=
