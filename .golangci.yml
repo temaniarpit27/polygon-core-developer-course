@@ -1,17 +1,3 @@
-# This file configures github.com/golangci/golangci-lint.
-
-run:
-  go: '1.18'
-  timeout: 20m
-  tests: true
-  # default is true. Enables skipping of directories:
-  #   vendor$, third_party$, testdata$, examples$, Godeps$, builtin$
-  skip-dirs-use-default: true
-  skip-files:
-    - core/genesis_alloc.go
-    - gen_.*.go
-    - .*_gen.go
-
 linters:
   enable:
     - goconst
@@ -160,7 +146,6 @@ issues:
     - path: cmd/faucet/
       linters:
         - deadcode
-    # Exclude some linters from running on tests files.
     - path: test\.go
       linters:
         - gosec
