@@ -17,30 +17,21 @@ jobs:
     if: (github.event.action != 'closed' || github.event.pull_request.merged == true)
     strategy:
       matrix:
-        os: [ ubuntu-20.04, macos-11 ] # list of os: https://github.com/actions/virtual-environments
+        os: [ubuntu-20.04] # list of os: https://github.com/actions/virtual-environments
     runs-on: ${{ matrix.os }}
     steps:
-        - uses: actions/setup-go@v3
-          with:
-            go-version: 1.18.x
+      - uses: actions/checkout@v3
+      - run: |
+          git submodule update --init --recursive --force
+          git fetch --no-tags --prune --depth=1 origin +refs/heads/main:refs/remotes/origin/main
+      - uses: actions/setup-go@v3
+        with:
+          go-version: 1.18.x
 
-        - name: Install dependencies on Linux
-          if: runner.os == 'Linux'
-          run: sudo apt update && sudo apt install build-essential
+      - name: Golang-ci install
+        if: runner.os == 'Linux'
+        run: make lintci-deps
 
-        - name: Golang-ci install
-          if: runner.os == 'Linux'
-          run: make lintci-deps
-
-        - uses: actions/cache@v3
-          with:
-            path: |
-              ~/.cache/go-build
-              ~/Library/Caches/go-build
-              ~/go/pkg/mod
-            key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
-            restore-keys: ${{ runner.os }}-go-
-
-        - name: Lint
-          if: runner.os == 'Linux'
-          run: make lint
+      - name: Lint
+        if: runner.os == 'Linux'
+        run: make lint

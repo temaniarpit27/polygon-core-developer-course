@@ -15,28 +15,21 @@ linters:
     - exportloopref
     - gocognit
     - gofmt
-    # - gomnd
     - gomoddirectives
-    - gosec
     - makezero
     - nestif
     - nilerr
     - nilnil
     - noctx
-    #- nosprintfhostport # TODO: do we use IPv6?
     - paralleltest
     - prealloc
     - predeclared
-    #- promlinter
-    #- revive
-    # - tagliatelle
     - tenv
     - thelper
     - tparallel
     - unconvert
     - unparam
     - wsl
-    #- errorlint causes stack overflow. TODO: recheck after each golangci update
 
 linters-settings:
   gofmt:
@@ -47,9 +40,6 @@ linters-settings:
     min-len: 3 # minimum length of string constant
     min-occurrences: 2 # minimum number of occurrences
     numbers: true
-
-  goimports:
-    local-prefixes: github.com/ethereum/go-ethereum
 
   nestif:
     min-complexity: 5
@@ -86,7 +76,6 @@ linters-settings:
       - preferStringWriter
       - preferWriteByte
       - sliceClear
-      #- ruleguard
 
     # Which checks should be disabled; can't be combined with 'enabled-checks'; default is empty
     disabled-checks:
@@ -118,55 +107,3 @@ linters-settings:
       - unsafeptr
     check-shadowing: true
     enable-all: true
-    settings:
-      printf:
-        # Run `go tool vet help printf` to see available settings for `printf` analyzer.
-        funcs:
-          - (github.com/ethereum/go-ethereum/log.Logger).Trace
-          - (github.com/ethereum/go-ethereum/log.Logger).Debug
-          - (github.com/ethereum/go-ethereum/log.Logger).Info
-          - (github.com/ethereum/go-ethereum/log.Logger).Warn
-          - (github.com/ethereum/go-ethereum/log.Logger).Error
-          - (github.com/ethereum/go-ethereum/log.Logger).Crit
-
-issues:
-  exclude-rules:
-    - path: crypto/blake2b/
-      linters:
-        - deadcode
-    - path: crypto/bn256/cloudflare
-      linters:
-        - deadcode
-    - path: p2p/discv5/
-      linters:
-        - deadcode
-    - path: core/vm/instructions_test.go
-      linters:
-        - goconst
-    - path: cmd/faucet/
-      linters:
-        - deadcode
-    - path: test\.go
-      linters:
-        - gosec
-        - unused
-        - deadcode
-        - gocritic
-    - path: cmd/devp2p
-      linters:
-        - gosec
-        - unused
-        - deadcode
-        - gocritic
-    - path: metrics/sample\.go
-      linters:
-        - gosec
-        - gocritic
-    - path: p2p/simulations
-      linters:
-        - gosec
-        - gocritic
-  max-issues-per-linter: 0
-  max-same-issues: 0
-  #new: true
-  new-from-rev: origin/main
