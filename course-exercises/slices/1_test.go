@@ -25,7 +25,7 @@ func TestExercise1(t *testing.T) {
 	}
 
 	for _, tc := range tests {
-		testOp := Exercise1(tc.inp1, tc.inp2)
+		testOp := AddElement(tc.inp1, tc.inp2)
 		assert.True(t, reflect.DeepEqual(testOp, tc.op))
 	}
 }
@@ -48,7 +48,7 @@ func TestExercise2(t *testing.T) {
 	}
 
 	for _, tc := range tests {
-		testOp := Exercise2(tc.inp1, tc.inp2)
+		testOp := AddElementToEnd(tc.inp1, tc.inp2)
 		assert.True(t, reflect.DeepEqual(testOp, tc.op))
 	}
 }
@@ -71,7 +71,7 @@ func TestExercise3(t *testing.T) {
 	}
 
 	for _, tc := range tests {
-		testOp := Exercise3(tc.inp1, tc.inp2)
+		testOp := AddElementToStart(tc.inp1, tc.inp2)
 		assert.True(t, reflect.DeepEqual(testOp, tc.op))
 	}
 }
@@ -111,7 +111,7 @@ func TestExercise456(t *testing.T) {
 	}
 
 	for _, tc := range tests {
-		testOp1, testOp2 := Exercise456(tc.inp1, tc.inp2)
+		testOp1, testOp2 := RemoveElement(tc.inp1, tc.inp2)
 		assert.True(t, reflect.DeepEqual(testOp1, tc.op1))
 		assert.True(t, reflect.DeepEqual(testOp2, tc.op2))
 	}
@@ -135,7 +135,7 @@ func TestExercise7(t *testing.T) {
 	}
 
 	for _, tc := range tests {
-		testOp := Exercise7(tc.inp1, tc.inp2)
+		testOp := RemoveDuplicates(tc.inp1, tc.inp2)
 		assert.True(t, reflect.DeepEqual(testOp, tc.op))
 	}
 }
@@ -158,7 +158,7 @@ func TestExercise8(t *testing.T) {
 	}
 
 	for _, tc := range tests {
-		testOp := Exercise8(tc.inp1, tc.inp2)
+		testOp := RemoveDuplicatesFromSecond(tc.inp1, tc.inp2)
 		assert.True(t, reflect.DeepEqual(testOp, tc.op))
 	}
 }
@@ -188,7 +188,7 @@ func TestExercise910(t *testing.T) {
 	}
 
 	for _, tc := range tests {
-		testOp := Exercise910(tc.inp1, tc.inp2)
+		testOp := RotateLeft(tc.inp1, tc.inp2)
 		assert.True(t, reflect.DeepEqual(testOp, tc.op))
 	}
 }
@@ -218,7 +218,7 @@ func TestExercise1112(t *testing.T) {
 	}
 
 	for _, tc := range tests {
-		testOp := Exercise1112(tc.inp1, tc.inp2)
+		testOp := RotateRight(tc.inp1, tc.inp2)
 		assert.True(t, reflect.DeepEqual(testOp, tc.op))
 	}
 }
@@ -239,7 +239,7 @@ func TestExercise13(t *testing.T) {
 	}
 
 	for _, tc := range tests {
-		testOp := Exercise13(tc.inp)
+		testOp := Copy(tc.inp)
 		assert.True(t, reflect.DeepEqual(testOp, tc.op))
 	}
 }
@@ -264,7 +264,7 @@ func TestExercise14(t *testing.T) {
 	}
 
 	for _, tc := range tests {
-		testOp := Exercise14(tc.inp)
+		testOp := SwapOddEvenElem(tc.inp)
 		assert.True(t, reflect.DeepEqual(testOp, tc.op))
 	}
 }
@@ -297,7 +297,7 @@ func TestExercise15(t *testing.T) {
 	}
 
 	for _, tc := range tests {
-		testOp := Exercise15(tc.inp1, tc.inp2)
+		testOp := SortSliceOrder(tc.inp1, tc.inp2)
 		assert.True(t, reflect.DeepEqual(testOp, tc.op))
 	}
 
@@ -326,7 +326,7 @@ func TestExercise15(t *testing.T) {
 	}
 
 	for _, tc := range tests2 {
-		testOp := Exercise15(tc.inp1, tc.inp2)
+		testOp := SortSliceOrder(tc.inp1, tc.inp2)
 		assert.True(t, reflect.DeepEqual(testOp, tc.op))
 	}
 }
