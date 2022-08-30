@@ -35,3 +35,7 @@ jobs:
       - name: Lint
         if: runner.os == 'Linux'
         run: make lint
+
+      - name: Test
+        if: runner.os == 'Linux'
+        run: make tests
